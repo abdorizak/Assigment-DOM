@@ -74,10 +74,3 @@ function wordsChangetoEnglsih() {
   document.getElementById("answer-label").innerHTML = "Enter your answer:";
 }
 
-// function x(input) {
-//   return typeof input === "string"
-//     ? console.log("string")
-//     : console.log("is not string");
-// }
-
-// console.log(x("asc"));
