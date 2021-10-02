@@ -4,11 +4,13 @@ const somali = ["Wiil", "magac", "turjumid", "shay", "baabur", "Geed"];
 
 function genrateEgn() {
   let randomWordIndex = Math.floor(Math.random() * 6);
+  document.getElementById("question-input").value = english[randomWordIndex];
   return english[randomWordIndex];
 }
 
 function genrateSom() {
   let randomWordIndex = Math.floor(Math.random() * 6);
+  document.getElementById("question-input").value = somali[randomWordIndex];
   return somali[randomWordIndex];
 }
 
@@ -31,30 +33,32 @@ function checkAns() {
   let language = document.getElementById("choose-lang").value;
   if (language == "english") {
     let result = document.getElementById("result");
-    result.innerHTML = somali.some(checkInarray);
-    if (result == true) {
+    // result.innerHTML = somali.some(checkInSomarray);
+    if ((result.innerHTML = somali.some(checkInSomarray))) {
       alert("Seccsess");
       genrateEgn();
+      document.getElementById("answer-input").value = "";
     } else {
       alert("try again...");
     }
   } else if (language == "somali") {
     let result = document.getElementById("result");
-    result.innerHTML = somali.some(checkInarray);
-    if (result) {
+    // result.innerHTML = english.some(checkInEngarray);
+    if ((result.innerHTML = english.some(checkInEngarray))) {
       alert("Seccsess");
       genrateSom();
+      document.getElementById("answer-input").value = "";
     } else {
       alert("try again...");
     }
   }
 }
 
-function checkInarray(somali) {
+function checkInSomarray(somali) {
   return somali == document.getElementById("answer-input").value;
 }
 
-function checkInarray(english) {
+function checkInEngarray(english) {
   return english == document.getElementById("answer-input").value;
 }
 
@@ -74,3 +78,8 @@ function wordsChangetoEnglsih() {
   document.getElementById("answer-label").innerHTML = "Enter your answer:";
 }
 
+function reset() {
+  document.getElementById("choose-lang").value = "";
+  document.getElementById("question-input").value = "";
+  document.getElementById("answer-input").value = "";
+}
