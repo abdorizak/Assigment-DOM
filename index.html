@@ -35,7 +35,7 @@
           </div>
           <div class="answer-div">
             <label for="" id="answer-label">Enter your answer:</label>
-            <input type="text" id="answer-input" />
+            <input type="text" id="answer-input" onkeyup="forceLower(this);" />
             <!-- <p id="error"></p> -->
           </div>
           <div class="buttons">
@@ -45,6 +45,7 @@
             <button class="btn" onclick="reset()" id="reset">Reset</button>
           </div>
           <!-- Use the following <p> to show the result "Correct/Incorrect" -->
+          <p id="correct-incorrect"></p>
           <p id="result"></p>
         </div>
       </div>

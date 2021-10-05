@@ -1,6 +1,6 @@
-const english = ["Boy", "name", "translate", "item", "car", "tree"];
+const english = ["boy", "name", "translate", "item", "car", "tree"];
 
-const somali = ["Wiil", "magac", "turjumid", "shay", "baabur", "Geed"];
+const somali = ["wiil", "magac", "turjumid", "shay", "baabur", "geed"];
 
 function genrateEgn() {
   let randomWordIndex = Math.floor(Math.random() * 6);
@@ -35,21 +35,21 @@ function checkAns() {
     let result = document.getElementById("result");
     // result.innerHTML = somali.some(checkInSomarray);
     if ((result.innerHTML = somali.some(checkInSomarray))) {
-      alert("Seccsess");
+      document.getElementById("correct-incorrect").innerhtml = "Correct ✅";
       genrateEgn();
       document.getElementById("answer-input").value = "";
     } else {
-      alert("try again...");
+      document.getElementById("correct-incorrect").innerhtml = "InCorrect ❌";
     }
   } else if (language == "somali") {
     let result = document.getElementById("result");
     // result.innerHTML = english.some(checkInEngarray);
     if ((result.innerHTML = english.some(checkInEngarray))) {
-      alert("Seccsess");
+      document.getElementById("correct-incorrect").innerhtml = "Correct ✅";
       genrateSom();
       document.getElementById("answer-input").value = "";
     } else {
-      alert("try again...");
+      document.getElementById("correct-incorrect").innerhtml = "InCorrect ❌";
     }
   }
 }
@@ -82,4 +82,8 @@ function reset() {
   document.getElementById("choose-lang").value = "";
   document.getElementById("question-input").value = "";
   document.getElementById("answer-input").value = "";
+}
+
+function forceLower(strInput) {
+  return (strInput.value = strInput.value.toLowerCase());
 }
